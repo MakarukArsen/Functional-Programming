@@ -29,10 +29,10 @@ function getMySalary(){
     const taxes = Number((this.tax * salary).toFixed(2));
     const profit = Number((salary - taxes).toFixed(2));
     const result = {salary: salary, taxes: taxes, profit: profit};
+    setInterval(function(){
+        const result = getMySalary.call(ukraine);
+        console.log(result)
+    }.bind(this), 10000)
     return result;
 }
-setOnTimer = () =>{
-    const result = getMySalary.call(ukraine);
-    console.log(result);
-}
-setInterval(setOnTimer, 10000);
+console.log(getMySalary.call(ukraine))

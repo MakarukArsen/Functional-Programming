@@ -25,14 +25,13 @@ console.log(getTotalTaxes.call(litva));
 
 // 4. Створіть функцію getMySalary(country) – яка буде писати в консоль об'єкт виду: { salary: number, taxes: number, profit: number } кожні 10 секунд. Значення salary – генеруйте випадковим чином у діапазоні 1500-2000. taxes – розраховується в залежності від вибраної країни та значення salary.
 function getMySalary(){
-    const salary = Math.floor(Math.random() * (2001 - 1500) + 1500);
-    const taxes = Number((this.tax * salary).toFixed(2));
-    const profit = Number((salary - taxes).toFixed(2));
-    const result = {salary: salary, taxes: taxes, profit: profit};
-    setInterval(function(){
-        const result = getMySalary.call(ukraine);
+    const timer = setInterval(function(){
+        const salary = Math.floor(Math.random() * (2001 - 1500) + 1500);
+        const taxes = Number((this.tax * salary).toFixed(2));
+        const profit = Number((salary - taxes).toFixed(2));
+        const result = {salary: salary, taxes: taxes, profit: profit};
         console.log(result)
-    }.bind(this), 10000)
-    return result;
+    }.bind(this), 10000);
+    return timer;
 }
-console.log(getMySalary.call(ukraine))
+getMySalary.call(ukraine)
